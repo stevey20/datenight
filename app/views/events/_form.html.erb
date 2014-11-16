@@ -1,22 +1,32 @@
-<%= bootstrap_form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-      <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+<div class="container">
+  <div class="row">
+    <div class="span2" style="float:none; margin:0 auto">
+
+      <%= bootstrap_form_for(@event) do |f| %>
+      
+      <% if @event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+              
+              <ul>
+              <% @event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+            <%= f.date_select :date, label: "When?"%>
+            <%= f.time_field :time, label: "What Time?"%>
+            <%= f.number_field :attendees, label: "How Many People?" %>
+            <%= f.number_field :budget,prepend: "$",append: ".00",placeholder: "From 0 to 1 million, we'll make it happen..." ,label: "What's Your Max Budget?",help: "We'll try to stay as far under budget as possible :)" %>
+            <%= f.text_area :notes,  label: "Anything Else We Should Know?", rows: "2" %>
+            <%= f.submit "Request Date!" %>
+            
+        <% end %>
+<br>
+
     </div>
-  <% end %>
-
-    <%= f.date_select :date %>
-    <%= f.time_select :time %>
-    <%= f.number_field :attendees %>
-    <%= f.number_field :budget %>
-    <%= f.text_area :notes %>
-    <%= f.submit "Request Date!" %>
-    
-<% end %>
-
-
+  </div>
+</div>

@@ -21,7 +21,7 @@
             <%= f.time_field :time, label: "What Time?"%>
             <%= f.number_field :attendees, label: "How Many People?" %>
             <%= f.number_field :budget,prepend: "$",append: ".00",placeholder: "From 0 to 1 million, we'll make it happen..." ,label: "What's Your Max Budget?",help: "We'll try to stay as far under budget as possible :)" %>
-            <%= f.text_area :notes,  label: "Anything Else We Should Know?", rows: "2" %>
+            <%= f.text_area :notes,  label: "Anything Else We Should Know?", rows: "2"%>
             <%= f.submit "Request Date!" %>
             
         <% end %>

@@ -1,8 +1,13 @@
+<hr/>
 
 <div id="myForm" class="container">
   <div class="row">
     <div class="span2" style="float:none; margin:0 auto">
-
+<div class="blog-header">
+<h1 class="blog-title">Request A Nyte</h1>
+<p class="lead blog-description">We'll get back to you within minutes</p>
+</div>
+      
       <%= bootstrap_form_for(@event) do |f| %>
       
       <% if @event.errors.any? %>
@@ -17,11 +22,22 @@
             </div>
           <% end %>
 
-            <%= f.date_select :date, label: "When?"%>
+            <%= f.text_field :name, label: "Name"%>
+
+            <%= f.telephone_field :phone, label: "Phone Number"%>
+
+            <%= f.email_field :email, label: "Email Address"%>
+            
+            <%= f.number_field :zip_code, label: "Zip Code"%>
+
+            <%= f.date_select :date, label: "What Day?"%>
+
             <%= f.time_field :time, label: "What Time?"%>
-            <%= f.number_field :attendees, label: "How Many People?" %>
+
             <%= f.number_field :budget,prepend: "$",append: ".00",placeholder: "From 0 to 1 million, we'll make it happen..." ,label: "What's Your Max Budget?",help: "We'll try to stay as far under budget as possible :)" %>
+
             <%= f.text_area :notes,  label: "Anything Else We Should Know?", rows: "2"%>
+            
             <%= f.submit "Request Date!" %>
             
         <% end %>

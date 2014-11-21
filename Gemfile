@@ -43,11 +43,11 @@ gem 'spring',        group: :development
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 
-
 # gems required for styling
 gem 'bootstrap-sass', '~> 3.3.1.0'
 
 #gem for form styling
 
 gem 'bootstrap_form'
+
 
